@@ -1,0 +1,47 @@
+Group Details:
+             Surakshitha.M -1KS17CS088
+             Varshitha.S   -1KS17CS095
+             Sindhu.M      -1KS17CS079
+
+
+A01: A sends UDP request (default of 1 packet per second) for 1 minute, takes a break for 60
+     seconds and again sends UDP packets for 1 minute (default of 1 request per second) to B. B
+     implements rate limit using action "-j DROP" for packets sent to A only and drops packets from
+     as per X and Y. A implements rate limit for packets sent to B using action "-j ACCEPT" with X as
+     burst limit, and Y as average rate . No other communications should be dropped. For example,
+     ping to google from A and B should continue to work as normal.
+
+work done:Server.java
+          client.java
+          UDP is generally slower and more difficult than TCP. A UDP works by sending 
+          an empty (no data) UDP header to every targeted port. Based on the response 
+          or lack thereof,the port is assigned to selected states.
+          and here it is A sends the request for 1 minute and it takes for a break 60 seconds,
+          again udp sends the request to B for 1 minute and it limits using the j drop for packet
+          sent A and as per taking the variables X and Y and A relates to B using j accept.
+          In the case X having burst limit,and Y having average rate .
+          
+      Ping or Packet Internet Groper is a network administration utility used to check the connectivity status between a source and a destination computer/device over an IP network. It also helps you assess the time it takes to send and receive a response from the network.
+we could send at ping with interval of 30secs
+In ping11, 
+To allow ping:
+      $ sudo iptables -L
+
+To remove that rule that is blocking ping:
+      $ sudo iptables -D INPUT -p icmp --icmp-type echo-request -j REJECT
+
+To send ping with interval of 30 secs of IP address 192.168.0.110:
+           $ ping -i 30 192.168.0.110
+   
+
+Problems:
+      Since the topic is vast and requries more time to understand.
+      Tried learning the topic but was tough for analysing it.
+      understanding iptables were quite tough.
+
+      
+
+References:
+          stackoverflow.com
+          https://www.wikihow.com
+          
